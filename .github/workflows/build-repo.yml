@@ -19,10 +19,7 @@ jobs:
 
       - name: generate Packages for all archs
         run: |
-          dpkg-scanpackages -a iphoneos-arm debs /dev/null > Packages
-          dpkg-scanpackages -a iphoneos-arm64 debs /dev/null >> Packages
-          dpkg-scanpackages -a iphoneos-arm64e debs /dev/null >> Packages
-          dpkg-scanpackages -a iphoneos-arm64e-roothide debs /dev/null >> Packages
+          dpkg-scanpackages debs /dev/null > Packages
           gzip -k -f Packages
 
       - name: commit & push index files
